@@ -1,5 +1,5 @@
-# https://github.com/alvisisme/docker-android-ndk/blob/r13b/Dockerfile
 FROM alvisisme/docker-android-ndk:r13b
+LABEL maintainer "alvisisme@163.com"
 
 ENTRYPOINT []
 CMD ["/bin/bash","/home/dev/arm64/bin/build.sh"]
@@ -20,5 +20,4 @@ ENV AS=/home/dev/arm64/bin/aarch64-linux-android-as
 
 RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y binutils
 RUN /usr/local/android-ndk-r13b/build/tools/make_standalone_toolchain.py --arch arm64 --api 21 --stl gnustl --force --install-dir /home/dev/arm64
-RUN wget https://raw.githubusercontent.com/alvisisme/android-zlib/master/build.sh -O /home/dev/arm64/bin/build.sh
-
+COPY build.sh /home/dev/arm64/bin/build.sh

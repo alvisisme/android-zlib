@@ -6,11 +6,12 @@
 
 * ubuntu16.04
 * android-ndk-r13b
-* zlib-1.2.8
+* zlib-1.2.11
 
 ## 编译步骤
 
 执行命令
-```shell
-make
-```
+
+    ```shell
+    make
+    ```

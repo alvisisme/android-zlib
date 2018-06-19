@@ -1,10 +1,11 @@
 #!/bin/bash
-wget http://prdownloads.sourceforge.net/libpng/zlib-1.2.8.tar.gz && \
-tar xf zlib-1.2.8.tar.gz && \
-cd zlib-1.2.8 && \
+VERSION=1.2.11
+wget http://prdownloads.sourceforge.net/libpng/zlib-$VERSION.tar.gz && \
+tar xf zlib-$VERSION.tar.gz && \
+cd zlib-$VERSION && \
 ./configure --static --prefix=/home/dev/out && \
 make && \
 sudo make install && \
 cd /home/dev && \
-rm zlib-1.2.8.tar.gz && \
-rm -rf zlib-1.2.8
+rm zlib-$VERSION.tar.gz && \
+rm -rf zlib-$VERSION
