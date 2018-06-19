@@ -12,6 +12,6 @@
 
 执行命令
 
-    ```shell
-    make
-    ```
+```shell
+make
+```
