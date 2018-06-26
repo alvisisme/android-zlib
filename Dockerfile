@@ -1,6 +1,6 @@
 FROM alvisisme/arm64-android-toolchain
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y binutils
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends binutils cmake
 
 COPY build.sh /build.sh
 
