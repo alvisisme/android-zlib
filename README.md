@@ -1,6 +1,8 @@
 # Build zlib for android
 
-编译android平台arm64架构的zlib静态库.
+[![Build Status](https://travis-ci.org/alvisisme/android-zlib.svg?branch=master)](https://travis-ci.org/alvisisme/android-zlib)
+
+编译 Android 平台 arm64 架构的 zlib.
 
 ## 测试环境
 
