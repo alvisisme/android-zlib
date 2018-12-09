@@ -1,0 +1,9 @@
+version: '2'
+services:
+  android-build-zlib:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: android-build-zlib:v1.2.11
+    volumes:
+      - .:/out
