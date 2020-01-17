@@ -17,6 +17,9 @@ ENV NM=/opt/arm64-android-toolchain/bin/aarch64-linux-android-nm
 ENV AS=/opt/arm64-android-toolchain/bin/aarch64-linux-android-as
 ENV SYSROOT=/opt/arm64-android-toolchain/sysroot
 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends binutils cmake
+
 USER root
 WORKDIR /out
 VOLUME ["/out"]
