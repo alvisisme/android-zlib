@@ -6,7 +6,7 @@
 
 ## 测试环境
 
-* ubuntu16.04
+* ubuntu18.04
 * android-ndk-r13b
 * zlib-1.2.11
 
