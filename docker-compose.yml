@@ -1,9 +1,7 @@
 version: '2'
 services:
   zlib:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    build: .
     image: zlib-for-android-arm64-v8a
     volumes:
       - ./build:/build
