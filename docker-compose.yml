@@ -1,6 +1,6 @@
 version: '2'
 services:
-  zlib:
+  zlib-for-android:
     build: .
     image: zlib-for-android-arm64-v8a
     volumes:
