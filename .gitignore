@@ -1,2 +1,4 @@
 out/
-build/
+[Bb]uild[s]/
+*.tar.gz
+zlib-*/

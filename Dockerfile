@@ -1,31 +1,23 @@
 # See https://github.com/alvisisme/docker-android-ndk
-FROM alvisisme/android-ndk:r13b
+FROM alvisisme/android-ndk:r26
 
 RUN apt-get update \
-     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends wget binutils cmake
+     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+      wget \
+      curl \
+      ca-certificates \
+      unzip \
+      binutils \
+      autoconf \
+      build-essential \
+      cmake
 
-RUN /bin/bash /android-ndk-r13b/build/tools/make-standalone-toolchain.sh \
-        --arch=arm64 \
-        --platform=android-21 \
-        --toolchain=aarch64-linux-android-4.9 \
-        --stl=libc++ \
-        --install-dir=/arm64-android-toolchain
+ENV ANDROID_NDK_ROOT=/android-ndk-r26
 
-ENV PATH=/arm64-android-toolchain/bin:$PATH
-ENV CC=/arm64-android-toolchain/bin/aarch64-linux-android-gcc
-ENV CXX=/arm64-android-toolchain/bin/aarch64-linux-android-g++
-ENV LINK=/arm64-android-toolchain/bin/aarch64-linux-android-g++
-ENV LD=/arm64-android-toolchain/bin/aarch64-linux-android-ld
-ENV AR=/arm64-android-toolchain/bin/aarch64-linux-android-ar
-ENV RANLIB=/arm64-android-toolchain/bin/aarch64-linux-android-ranlib
-ENV STRIP=/arm64-android-toolchain/bin/aarch64-linux-android-strip
-ENV OBJCOPY=/arm64-android-toolchain/bin/aarch64-linux-android-objcopy
-ENV OBJDUMP=/arm64-android-toolchain/bin/aarch64-linux-android-objdump
-ENV NM=/arm64-android-toolchain/bin/aarch64-linux-android-nm
-ENV AS=/arm64-android-toolchain/bin/aarch64-linux-android-as
-ENV SYSROOT=/arm64-android-toolchain/sysroot
+COPY zlib_build.sh /zlib_build.sh
+COPY zlib_build_arm64-v8a.sh /zlib_build_arm64-v8a.sh
+COPY zlib_build_armeabi-v7a.sh /zlib_build_armeabi-v7a.sh
+COPY zlib_build_x86_64.sh /zlib_build_x86_64.sh
+COPY zlib_build_x86.sh /zlib_build_x86.sh
 
-COPY build.sh /build.sh
-VOLUME ["/build"]
-
-CMD ["/bin/bash", "/build.sh"]
+VOLUME ["/builds"]

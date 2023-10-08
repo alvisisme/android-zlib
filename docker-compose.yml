@@ -1,7 +1,28 @@
-version: '2'
+version: '3'
 services:
-  zlib-for-android:
+  zlib-arm64-v8a:
     build: .
-    image: zlib-for-android-arm64-v8a
+    image: zlib-for-android:arm64-v8a
     volumes:
-      - ./build:/build
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - ./builds:/builds
+    command: ["bash", "/zlib_build_arm64-v8a.sh"]
+  zlib-armeabi-v7a:
+    build: .
+    image: zlib-for-android:armeabi-v7a
+    volumes:
+      - ./builds:/builds
+    command: ["bash", "/zlib_build_armeabi-v7a.sh"]
+  zlib-x86:
+    build: .
+    image: zlib-for-android:x86
+    volumes:
+      - ./builds:/builds
+    command: ["bash", "/zlib_build_x86.sh"]
+  zlib-x86_64:
+    build: .
+    image: zlib-for-android:x86_64
+    volumes:
+      - ./builds:/builds
+    command: ["bash", "/zlib_build_x86_64.sh"]

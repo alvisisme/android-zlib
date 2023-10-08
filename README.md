@@ -1,8 +1,6 @@
 # zlib-for-android
 
-[![Build Status](https://img.shields.io/travis/com/alvisisme/android-zlib?style=flat-square)](https://travis-ci.com/alvisisme/android-zlib)
-
-编译zlib至android平台arm64-v8a架构。
+编译 zlib 至 android 平台。
 
 本工程编译包含静态库和动态库。
 
@@ -20,22 +18,22 @@
 编译环境
 
 * Ubuntu 18.04.4 LTS amd64
-* android-ndk-r13b
+* android-ndk-r26
 * zlib-1.2.11
 
 ## 安装
 
-将**dist**目录下对应头文件和静态库/动态库引入。
+将 **builds** 目录下对应头文件和静态库/动态库引入。
 
 ## 用法
 
-推荐使用 docker 和 docker-compose 进行编译
+推荐使用 docker 和 docker compose 进行编译
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
-编译后的静态库和动态库位于 **build/lib** 目录下。
+编译后的静态库和动态库位于 **builds/{ANDROID_TARGET_ABI}/lib** 目录下。
 
 ## 维护人员
 
@@ -47,4 +45,4 @@ docker-compose up --build
 
 ## 许可
 
-© 2020 Alvis Zhao
+© 2020-2023 Alvis Zhao
